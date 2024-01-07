@@ -5,26 +5,12 @@ using Random = UnityEngine.Random;
 
     public class audio : MonoBehaviour
     {
-        // This script reads some of the car's current properties and plays sounds accordingly.
-        // The engine sound can be a simple single clip which is looped and pitched, or it
-        // can be a crossfaded blend of four clips which represent the timbre of the engine
-        // at different RPM and Throttle state.
-
-        // the engine clips should all be a steady pitch, not rising or falling.
-
-        // when using four channel engine crossfading, the four clips should be:
-        // lowAccelClip : The engine at low revs, with throttle open (i.e. begining acceleration at very low speed)
-        // highAccelClip : Thenengine at high revs, with throttle open (i.e. accelerating, but almost at max speed)
-        // lowDecelClip : The engine at low revs, with throttle at minimum (i.e. idling or engine-braking at very low speed)
-        // highDecelClip : Thenengine at high revs, with throttle at minimum (i.e. engine-braking at very high speed)
-
-        // For proper crossfading, the clips pitches should all match, with an octave offset between low and high.
 
 
         public enum EngineAudioOptions // Options for the engine audio
         {
-            Simple, // Simple style audio
-            FourChannel // four Channel audio
+            Simple,  
+            FourChannel  
         }
 
         public EngineAudioOptions engineSoundStyle = EngineAudioOptions.FourChannel;// Set the default audio options to be four channel
@@ -52,9 +38,7 @@ using Random = UnityEngine.Random;
         
         private void StartSound()
         {
-            // get the carcontroller ( this will not be null as we have require component)
-            //m_CarController = GetComponent<CarController>();
-
+             
             // setup the simple audio source
             m_HighAccel = SetUpEngineAudioSource(highAccelClip);
 
